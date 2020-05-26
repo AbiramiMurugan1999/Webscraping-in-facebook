@@ -1,0 +1,16 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+from webdriver_manager.chrome import ChromeDriverManager
+driver = webdriver.Chrome(ChromeDriverManager().install())
+driver.get('https://www.facebook.com')
+usermail = driver.find_element_by_name('email')
+usermail.send_keys('your mail id')
+password = driver.find_element_by_id('pass')
+password.send_keys('your password')
+log_in_button = driver.find_element_by_id('u_0_b')
+log_in_button.click()
+time.sleep(15)
+search_query = driver.find_element_by_xpath('//*[@id="u_f_2"]/input[2]')
+search_query.send_keys('python jobs')
+search_query.send_keys(Keys.RETURN)
